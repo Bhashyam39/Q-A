@@ -5,10 +5,12 @@ div{
 html,body{
     font-size: 125%;
     height: 95%;
+    margin-top: 0px;
+    margin-left: 1px;
 }
 
 .main_page{
-    height: 60%;
+    height: 40%;
     width:100%;
 }
 
@@ -20,3 +22,27 @@ html,body{
 #main_page{
     text-align: center;
 }
+
+.topnav {
+    overflow: hidden;
+    background-color: azure;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #B9F8D3;
+    color: #E78EA9;
+  }
