@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIUIZ</title>
+
+    {% load     static%}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="/about">About</a>
+    </div>
+
+    <center><h1>Welcome to the Kiuiz</h1></center>
+    <p>&emsp; This is a portal for the coding and the quiz of the infomac of the kits college.</p>
+    <p>In the below box type the name of the competitions ongoing or even the completed.</p>
+
+    <div class="main_page autocomplete-items" id="main_page">
+        <br><br>
+        <p>Type to search the ongoing or the completed competitions</p>
+        <form autocomplete="off" action="./Questions.html">
+            <input id="myInput" class="Submit" type="text" name="myCountry" placeholder="competitions">
+            <input type="submit" id="submit_btn">
+          </form>
+        <br>
+    </div>
+    <p>This is a competational portal for the assessment of the competitions conducted in the college.</p>
+
+</body>
+</html>
