@@ -1,0 +1,22 @@
+div{
+    border: solid 2px;
+}
+
+html,body{
+    font-size: 125%;
+    height: 95%;
+}
+
+.main_page{
+    height: 60%;
+    width:100%;
+}
+
+.Submit{
+    width:50%;
+    height: 20%;
+}
+
+#main_page{
+    text-align: center;
+}
