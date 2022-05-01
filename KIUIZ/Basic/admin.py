@@ -8,12 +8,13 @@ class EXAMAdmin(admin.ModelAdmin):
 admin.site.register(EXAM, EXAMAdmin)
 
 class QUESTIONAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('query','exam')
+
 admin.site.register(QUESTION, QUESTIONAdmin)
 
 
 class OPTIONAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('question','option')
 admin.site.register(OPTION, OPTIONAdmin)
 
 
