@@ -16,7 +16,9 @@
         <a href="./about.html">About</a>
     </div>
 
-    <a href="./index.html">back</a>
+    <h3>Student roll number is  {{studentRollNumber}}</h3>
+    <h3>Exam name is {{ examName}}</h3>
+    <!-- <a href="./index.html">back</a>
     <p> This is the Questions page of the Ongoing or the completed comptetitions in the college.</p>
     <div>
         <br>
@@ -50,7 +52,10 @@
             <br>
             <input type="submit" id="submit">
         </form>
-        <br>
+        <br> -->
+        {% for question in questions %}
+            <p>{{ question.query}}</p>
+        {% endfor %}
     </div>
 </body>
 </html>

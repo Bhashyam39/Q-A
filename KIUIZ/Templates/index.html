@@ -39,20 +39,20 @@
     {%  if isexamexist == 'yes' %} 
 
 
-    <form action="/exam" method="post">
-        {% csrf_token %}
-        <input type="text" name="examName" value="{{examName}}">
-        <input type="submit" value="Search">
-    </form>
+
     <form action="/question" method="post">
         {% csrf_token %}
+        <input type="text" name="examName" value="{{examName}}">
+      <br>
         <input type="text" name="studentRollNumber" placeholder="enter your roll number">
+        <br>
         <input type="submit" value="join">
     </form>
     {% else %}
     <form action="/exam" method="post">
         {% csrf_token %}
         <input type="text" name="examName" value="{{examName}}">
+        <br>
         
         <input type="submit" value="Search">
     </form>
