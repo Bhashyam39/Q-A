@@ -21,7 +21,7 @@
     <p>&emsp; This is a portal for the coding and the quiz of the infomac of the kits college.</p>
     <p>In the below box type the name of the competitions ongoing or even the completed.</p>
 
-    <div class="main_page autocomplete-items" id="main_page">
+    <!-- <div class="main_page autocomplete-items" id="main_page">
         <br><br>
         <p>Type to search the ongoing or the completed competitions</p>
         <form autocomplete="off" action="./Questions.html">
@@ -29,8 +29,37 @@
             <input type="submit" id="submit_btn">
           </form>
         <br>
-    </div>
+    </div> -->
+
+    
+
     <p>This is a competational portal for the assessment of the competitions conducted in the college.</p>
 
+
+    {%  if isexamexist == 'yes' %} 
+
+
+    <form action="/exam" method="post">
+        {% csrf_token %}
+        <input type="text" name="examName" value="{{examName}}">
+        <input type="submit" value="Search">
+    </form>
+    <form action="/question" method="post">
+        {% csrf_token %}
+        <input type="text" name="studentRollNumber" placeholder="enter your roll number">
+        <input type="submit" value="join">
+    </form>
+    {% else %}
+    <form action="/exam" method="post">
+        {% csrf_token %}
+        <input type="text" name="examName" value="{{examName}}">
+        
+        <input type="submit" value="Search">
+    </form>
+    {% if  isexamexist == 'no' %}
+
+    {{examName}} is not found &#10060;
+    {% endif %}
+    {%  endif %}
 </body>
 </html>
