@@ -30,8 +30,8 @@
          
                     {% for option in options%}
                         
-                        <input type="radio" name="{{option.question_id}}" id="{{option.question_id}}">
-                        <label for="{{option.question_id}}">{{option.option}}</label>
+                        <input type="radio" name="{{question}}"  value="{{option.option}}" id="{{option.question_id}}">
+                        <label for="{{question}}" >{{option.option}}</label>
                         <br>
                         <br>
                     {% endfor %}

@@ -15,8 +15,6 @@ class EXAM(models.Model):
     conducted_by = models.TextField()
     is_open = models.BooleanField()
 
-    def __str__(self):
-        return self.name.upper()
 
 
     def __str__(self):
@@ -44,6 +42,8 @@ class OPTION(models.Model):
 class ANSWER(models.Model):
     question = models.ForeignKey(QUESTION,on_delete = models.CASCADE)
     solution = models.ForeignKey(OPTION,on_delete = models.CASCADE)
+
+
 
 
 class RESPONSE(models.Model):
