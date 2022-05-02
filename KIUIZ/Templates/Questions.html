@@ -18,44 +18,30 @@
 
     <h3>Student roll number is  {{studentRollNumber}}</h3>
     <h3>Exam name is {{ examName}}</h3>
-    <!-- <a href="./index.html">back</a>
-    <p> This is the Questions page of the Ongoing or the completed comptetitions in the college.</p>
-    <div>
-        <br>
-        <form action="./submit.html">
-            <p>Question 1: Why is python so popular?</p>
-            <input type="radio" value="opt1" id="q1">
-            <label for="q1">Easy to learn and use</label>
-            <br>
-            <input type="radio" value="opt2" id="q1">
-            <label for="q1">Versatility, Efficiency, Reliability and Speed</label>
-            <br>
-            <input type="radio" value="opt3" id="q1">
-            <label for="q1">Automation</label>
-            <br>
-            <input type="radio" value="opt4" id="q1">
-            <label for="q1">All of the above</label>
-            <br>
-        <br>
-            <p>Question 2: Who developed python programming language</p>
-            <input type="radio" value="opt1" id="q2">
-            <label for="q2">Wick van Rossum</label>
-            <br>
-            <input type="radio" value="opt2" id="q2">
-            <label for="q2">Rasmus Lerdorf</label>
-            <br>
-            <input type="radio" value="opt3" id="q2">
-            <label for="q2">Guido van Rossum</label>
-            <br>
-            <input type="radio" value="opt4" id="q2">
-            <label for="q2">Niene Stom</label>
-            <br>
-            <input type="submit" id="submit">
-        </form>
-        <br> -->
-        {% for question in questions %}
-            <p>{{ question.query}}</p>
+
+        <form action="/submit" method="post">
+        {% for question,options in questionsAndOptions.items %}
+        {% csrf_token %}
+        <input type="hidden" name="examName" value="{{examName}}">
+    
+        <input type="hidden" name="studentRollNumber" value="{{studentRollNumber}}">
+    
+        <p>{{question}}</p>
+         
+                    {% for option in options%}
+                        
+                        <input type="radio" name="{{option.question_id}}" id="{{option.question_id}}">
+                        <label for="{{option.question_id}}">{{option.option}}</label>
+                        <br>
+                        <br>
+                    {% endfor %}
+                 
+
+             
         {% endfor %}
+        <input type="submit" value="submit your exam">
+    </form>
+       
     </div>
 </body>
 </html>

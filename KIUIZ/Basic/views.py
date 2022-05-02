@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from urllib3 import HTTPResponse
-from .models import EXAM, QUESTION
+from .models import EXAM, QUESTION,OPTION
 
 from django.http import HttpResponse
 # Create your views here.
@@ -40,8 +40,16 @@ def question_view(request):
         questions =  QUESTION.objects.filter(
             exam = EXAM.objects.get(name=examName )
         )
-        context['questions'] = questions
+        context['questionsAndOptions'] =  {}
 
-
+        for question in questions :
+            
+            context['questionsAndOptions'][question] = OPTION.objects.filter(question=question).values()
     
         return render(request,"Questions.html",context)
+
+def submit_view(request):
+    if request.method == "POST":
+        examName = request.POST['examName']
+        studentRollNumber = request.POST['studentRollNumber']
+        return render(request,'submit.html')
