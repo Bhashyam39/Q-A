@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from urllib3 import HTTPResponse
 from .models import EXAM, QUESTION,OPTION , RESPONSE
+import sys
 
 from django.http import HttpResponse
 # Create your views here.
@@ -68,3 +69,36 @@ def submit_view(request):
             
 
         return render(request,'submit.html')
+
+def runcode(request):
+    if request.method == 'POST':
+        code_part = request.POST['code_area']
+        input_part = request.POST['input_area']
+        y = input_part
+        input_part = input_part.replace("\n"," ").split(" ")
+        def input():
+            a = input_part[0]
+            del input_part[0]
+            return a
+        try:
+            orig_stdout = sys.stdout
+            sys.stdout = open('file.txt', 'w')
+            exec(code_part)
+            sys.stdout.close()
+            sys.stdout=orig_stdout
+            output = open('file.txt', 'r').read()
+        except Exception as e:
+            sys.stdout.close()
+            sys.stdout=orig_stdout
+            output = e
+        print(output)
+    res = render(request,'code.html',{"code":code_part,"input":y,"output":output})
+    return res
+
+def greetings(request):
+    res = render(request,'code.html')
+    return res
+
+def submit(request):
+    res = render(request,'submit.html')
+    return res
