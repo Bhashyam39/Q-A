@@ -13,7 +13,8 @@ class EXAM(models.Model):
     name = models.CharField(max_length = 40, unique=True)
     about = models.TextField()
     conducted_by = models.TextField()
-    is_open = models.BooleanField()
+    start = models.DateTimeField()
+    end = models.DateTimeField()
 
 
 
@@ -53,4 +54,4 @@ class RESPONSE(models.Model):
     response             = models.ForeignKey(OPTION,on_delete=models.CASCADE)
     date_time            = models.DateTimeField(auto_now_add=True,  )
 
-
+ 
