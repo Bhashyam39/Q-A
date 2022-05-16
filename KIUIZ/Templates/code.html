@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Submission Page</title>
-        <link rel="stylesheet" href="{% static 'index.css' %}">
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>KCSDE</title>
+  </head>
   <body>
     <div class="container-fluid">
       <div class="row" style="background-color:black;">
         <div class="col-sm-12" style="font-family:'Comic Sans MS'; font-size: 50px; color:white; letter-spacing: 3px;">
-          <center><b>Kiuiz</b></center>
+          <center><b>KCSDE</b> by CSD</center>
         </div>
       </div>
     </div>
-
-    <p>Welcome {{studentRollNumber}} this is the coding portal.</p>
-    <a href="/index/">Homepage</a>
-
+    <a href="/">Homepage</a>&ensp;
+    <a href="/about">about</a>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12 ml-5 mr-5 mt-5 mb-5">
@@ -29,8 +26,7 @@
             <div class="form-group row">
               <div class="col-sm-7 mr-5 ml-3">
                 <label for="comment"><h4>Coding Area</h4></label>
-                <textarea class="form-control" rows="14" name="code_area" style="border:1px solid grey; letter-spacing: 1px; font-family: 'Lucida Console'; font-size: 20px; " onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
-                    {{code}}</textarea>
+                <textarea class="form-control" rows="14" name="code_area" style="border:1px solid grey; letter-spacing: 1px; font-family: 'Lucida Console'; font-size: 20px; " onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{code}}</textarea>
               </div>
 
               <div class="col-sm-3">
